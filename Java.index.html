@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editable Table Example</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        td {
+            cursor: text;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Editable Table Example</h1>
+
+    <table id="editableTable">
+        <tr>
+            <th>Column 1</th>
+            <th>Column 2</th>
+            <th>Column 3</th>
+            <th>Column 4</th>
+            <th>Column 5</th>
+        </tr>
+        <!-- Rows will be added dynamically using JavaScript -->
+    </table>
+
+    <script>
+        // Function to add rows to the table
+        function addRows() {
+            var table = document.getElementById("editableTable");
+
+            // Add 8 rows
+            for (var i = 0; i < 8; i++) {
+                var row = table.insertRow(-1);
+
+                for (var j = 0; j < 5; j++) {
+                    var cell = row.insertCell(j);
+                    cell.contentEditable = true; // Make the cell editable
+                    cell.textContent = ""; // Initialize cell content
+                }
+            }
+        }
+
+        // Call the function to add rows when the page loads
+        addRows();
+    </script>
+
+</body>
+</html>
